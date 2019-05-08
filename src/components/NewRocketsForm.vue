@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: "NewRocketsForm",
+  name: "new-rockets-form",
   data: () => ({
     showForm: false
   })

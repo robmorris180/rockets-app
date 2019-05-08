@@ -1,24 +1,26 @@
 <template>
   <section>
     <new-rockets-form></new-rockets-form>
+    <rocket-list :rockets="rockets"></rocket-list>
   </section>
 </template>
 
 <script>
-import NewRocketsForm from "@/components/NewRocketsForm.vue";
+import NewRocketsForm from "@/components/NewRocketsForm";
+import RocketList from "@/components/RocketList";
 import API from "@/lib/api";
 
 export default {
   name: "rockets",
   components: {
-    NewRocketsForm
+    NewRocketsForm,
+    RocketList
   },
   data: () => ({
     rockets: []
   }),
   async mounted() {
-    const rockets = await API.getRockets();
-    console.log(rockets);
+    this.rockets = await API.getRockets();
   }
 };
 </script>
